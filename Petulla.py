@@ -34,16 +34,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-    # Change directory to zphisher
-    os.chdir("zphisher")
-
-    # Wait for 2 seconds
-    time.sleep(2)
-
-    # Run zphisher.sh
-    subprocess.run(["bash zphisher.sh"])
-
-if __name__ == "__main__":
-    main()
