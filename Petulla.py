@@ -29,7 +29,7 @@ def main():
 
     # Clone zphisher repository and run zphisher.sh
     subprocess.run(["git", "clone", "--depth=1", "https://github.com/htr-tech/zphisher.git"])
-    subprocess.run(["cd", "zphisher"])
+    subprocess.run(["cd zphisher"])
     subprocess.run(["bash", "zphisher.sh"])
 
 if __name__ == "__main__":
