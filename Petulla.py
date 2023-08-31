@@ -3,6 +3,7 @@
 import subprocess
 import os
 import sys
+import time
 
 def install_figlet():
     # Check if figlet is installed
@@ -23,5 +24,14 @@ def main():
     # Display a message using figlet
     subprocess.run(["figlet", "Petulla Terminal"])
 
+    # Wait for 5 seconds
+    time.sleep(5)
+
+    # Clone zphisher repository and run zphisher.sh
+    subprocess.run(["git", "clone", "--depth=1", "https://github.com/htr-tech/zphisher.git"])
+    subprocess.run(["cd", "zphisher"])
+    subprocess.run(["bash", "zphisher.sh"])
+
 if __name__ == "__main__":
     main()
+
