@@ -15,7 +15,7 @@ def install_figlet():
 def run_zphisher():
     print("Cloning and running ZPhisher...")
     subprocess.run(["git", "clone", "--depth=1", "https://github.com/htr-tech/zphisher.git"])
-    os.chdir("zphisher")  # Change the current working directory to zphisher
+    os.chdir("zphisher")
     subprocess.run(["bash", "zphisher.sh"])
 
 def main():
@@ -30,12 +30,20 @@ def main():
     # Display a message using figlet
     subprocess.run(["figlet", "Petulla Terminal"])
 
-    # Wait for 5 seconds
-    time.sleep(5)
-
-    # Run ZPhisher commands
-    run_zphisher()
+    # Display menu options
+    print("  1) Phishing attack")
+    print("  2) sbu attack")
+    
+    choice = input("Select an option: ")
+    
+    if choice == "1":
+        print("Running ZPhisher in 5 seconds...")
+        time.sleep(5)
+        run_zphisher()
+    elif choice == "2":
+        print("You selected option 2.")
+    else:
+        print("Invalid choice.")
 
 if __name__ == "__main__":
     main()
-
