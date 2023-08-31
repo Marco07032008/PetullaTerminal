@@ -22,7 +22,7 @@ def run_sqlmap():
     print("Cloning and running sqlmap...")
     subprocess.run(["git", "clone", "--depth", "1", "https://github.com/sqlmapproject/sqlmap.git", "sqlmap-dev"])
     os.chdir("sqlmap-dev")
-    subprocess.run(["sudo", "python3", "sqlmap.py", "--shell"])
+    subprocess.run(["sudo", "python3", "sqlmap.py", "--wizard"])
 
 def main():
     # Check if the script is run with root privileges
