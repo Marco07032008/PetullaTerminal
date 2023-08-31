@@ -37,7 +37,7 @@ def main():
     subprocess.run(["figlet", "Petulla Terminal"])
 
     # Display menu options
-    print("  1) Phishing atta")
+    print("  1) Phishing attack")
     print("  2) Sql attack")
     
     choice = input("Select an option: ")
