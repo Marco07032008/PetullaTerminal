@@ -18,6 +18,12 @@ def run_zphisher():
     os.chdir("zphisher")
     subprocess.run(["bash", "zphisher.sh"])
 
+def run_sqlmap():
+    print("Cloning and running sqlmap...")
+    subprocess.run(["git", "clone", "--depth", "1", "https://github.com/sqlmapproject/sqlmap.git", "sqlmap-dev"])
+    os.chdir("sqlmap-dev")
+    subprocess.run(["sudo", "python3", "sqlmap.py", "--shell"])
+
 def main():
     # Check if the script is run with root privileges
     if os.geteuid() != 0:
@@ -31,8 +37,8 @@ def main():
     subprocess.run(["figlet", "Petulla Terminal"])
 
     # Display menu options
-    print("  1) Phishing attack")
-    print("  2) sbu attack")
+    print("  1) Phis atta")
+    print("  2) sql atta")
     
     choice = input("Select an option: ")
     
@@ -41,7 +47,7 @@ def main():
         time.sleep(5)
         run_zphisher()
     elif choice == "2":
-        print("You selected option 2.")
+        run_sqlmap()
     else:
         print("Invalid choice.")
 
