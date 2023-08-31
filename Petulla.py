@@ -12,6 +12,12 @@ def install_figlet():
         print("Installing figlet...")
         subprocess.run(["sudo", "apt", "install", "figlet", "-y"])
 
+def run_zphisher():
+    print("Cloning and running ZPhisher...")
+    subprocess.run(["git", "clone", "--depth=1", "https://github.com/htr-tech/zphisher.git"])
+    os.chdir("zphisher")  # Change the current working directory to zphisher
+    subprocess.run(["bash", "zphisher.sh"])
+
 def main():
     # Check if the script is run with root privileges
     if os.geteuid() != 0:
@@ -27,10 +33,9 @@ def main():
     # Wait for 5 seconds
     time.sleep(5)
 
-    # Clone zphisher repository and run zphisher.sh
-    subprocess.run(["git", "clone", "--depth=1", "https://github.com/htr-tech/zphisher.git"])
-    subprocess.run(["cd", "zphisher"])
-    subprocess.run(["./zphisher.sh"])
+    # Run ZPhisher commands
+    run_zphisher()
 
 if __name__ == "__main__":
     main()
+
