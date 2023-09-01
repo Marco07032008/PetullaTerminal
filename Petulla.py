@@ -51,6 +51,15 @@ def run_wifi_tools():
     else:
         print("Invalid choice.")
 
+def run_ip_geolocation():
+    print("Cloning and setting up IP Geolocation...")
+    subprocess.run(["git", "clone", "https://github.com/maldevel/IPGeoLocation"])
+    os.chdir("IPGeoLocation")
+    subprocess.run(["sudo", "apt", "install", "python3-pip", "-y"])
+    subprocess.run(["pip3", "install", "-r", "requirements.txt", "--user"])
+    subprocess.run(["figlet", "IP Geolocation"])
+    print("To use this tool, run ./ip2geolocation.py -t X.X.X.X (replace X.X.X.X with the victim's IP)")
+
 def main():
     # Check if the script is run with root privileges
     if os.geteuid() != 0:
@@ -64,9 +73,10 @@ def main():
     subprocess.run(["figlet", "Petulla Terminal"])
 
     # Display menu options
-    print("1) Phishing attack")
-    print("2) Sql attack")
-    print("3) Wifi attack")
+    print("1) Phis atta")
+    print("2) sql atta")
+    print("3) wifi atta")
+    print("4) IP Geolocation")
     
     choice = input("Select an option: ")
     
@@ -78,6 +88,8 @@ def main():
         run_sqlmap()
     elif choice == "3":
         run_wifi_tools()
+    elif choice == "4":
+        run_ip_geolocation()
     else:
         print("Invalid choice.")
 
