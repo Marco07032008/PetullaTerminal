@@ -24,6 +24,22 @@ def run_sqlmap():
     os.chdir("sqlmap-dev")
     subprocess.run(["sudo", "python3", "sqlmap.py", "--wizard"])
 
+def run_wifi_tools():
+    print("Running Wi-Fi tools...")
+    subprocess.run(["figlet", "Choose one"])
+    time.sleep(2)
+    print("1) Airmon-ng")
+    print("2) Wifite")
+    
+    choice = input("Select an option: ")
+    
+    if choice == "1":
+        subprocess.run(["airmon-ng"])
+    elif choice == "2":
+        subprocess.run(["wifite"])
+    else:
+        print("Invalid choice.")
+
 def main():
     # Check if the script is run with root privileges
     if os.geteuid() != 0:
@@ -37,8 +53,9 @@ def main():
     subprocess.run(["figlet", "Petulla Terminal"])
 
     # Display menu options
-    print("  1) Phishing attack")
-    print("  2) Sql attack")
+    print("1) Phishing attack")
+    print("2) Sql attack")
+    print("3) Wifi attack")
     
     choice = input("Select an option: ")
     
@@ -48,6 +65,8 @@ def main():
         run_zphisher()
     elif choice == "2":
         run_sqlmap()
+    elif choice == "3":
+        run_wifi_tools()
     else:
         print("Invalid choice.")
 
