@@ -4,6 +4,7 @@ import subprocess
 import os
 import sys
 import time
+import threading
 
 def install_figlet():
     # Check if figlet is installed
@@ -52,17 +53,24 @@ def run_wifi_tools():
         print("Invalid choice.")
 
 def run_ip_geolocation():
-    print("Cloning IP Geolocation...")
+    print("Cloning and setting up IP Geolocation...")
     subprocess.run(["git", "clone", "https://github.com/maldevel/IPGeoLocation"])
     os.chdir("IPGeoLocation")
     subprocess.run(["sudo", "apt", "install", "python3-pip", "-y"])
     subprocess.run(["clear"])
     subprocess.run(["figlet", "IP Geolocation"])
     time.sleep(2)
-    print("To use this tool, run the following commands:")
+    print("To use this tool, run:")
     print("cd IPGeoLocation")
     print("pip3 install -r requirements.txt --user")
     print("python3 ipgeolocation.py -t X.X.X.X (replace X.X.X.X with the victim's IP)")
+    print("[104] Exit")
+    while True:
+        user_choice = input("Enter your choice: ")
+        if user_choice == "104":
+            subprocess.run(["Ctrl+C"])
+            subprocess.run(["Ctrl+C"])
+            break
 
 def main():
     # Check if the script is run with root privileges
@@ -77,9 +85,9 @@ def main():
     subprocess.run(["figlet", "Petulla Terminal"])
 
     # Display menu options
-    print("1) Phis atta")
-    print("2) sql atta")
-    print("3) wifi atta")
+    print("1) Phis attack")
+    print("2) Sql attack")
+    print("3) Wifi attack")
     print("4) IP Geolocation")
     
     choice = input("Select an option: ")
