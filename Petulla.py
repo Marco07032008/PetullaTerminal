@@ -56,10 +56,13 @@ def run_ip_geolocation():
     subprocess.run(["git", "clone", "https://github.com/maldevel/IPGeoLocation"])
     os.chdir("IPGeoLocation")
     subprocess.run(["sudo", "apt", "install", "python3-pip", "-y"])
-    subprocess.run(["pip3", "install", "-r", "requirements.txt", "--user"])
     subprocess.run(["clear"])
     subprocess.run(["figlet", "IP Geolocation"])
-    print("To use this tool, run ./ip2geolocation.py -t X.X.X.X (replace X.X.X.X with the victim's IP)")
+    time.sleep(2)
+    print("To use this tool, run the following commands:")
+    print("1. cd IPGeoLocation")
+    print("2. pip3 install -r requirements.txt --user")
+    print("3. Usage: ./ip2geolocation.py -t X.X.X.X (replace X.X.X.X with the victim's IP)")
 
 def main():
     # Check if the script is run with root privileges
