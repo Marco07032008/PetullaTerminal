@@ -57,6 +57,7 @@ def run_ip_geolocation():
     os.chdir("IPGeoLocation")
     subprocess.run(["sudo", "apt", "install", "python3-pip", "-y"])
     subprocess.run(["pip3", "install", "-r", "requirements.txt", "--user"])
+    subprocess.run(["clear"])
     subprocess.run(["figlet", "IP Geolocation"])
     print("To use this tool, run ./ip2geolocation.py -t X.X.X.X (replace X.X.X.X with the victim's IP)")
 
