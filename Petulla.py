@@ -52,7 +52,7 @@ def run_wifi_tools():
         print("Invalid choice.")
 
 def run_ip_geolocation():
-    print("Cloning and setting up IP Geolocation...")
+    print("Cloning IP Geolocation...")
     subprocess.run(["git", "clone", "https://github.com/maldevel/IPGeoLocation"])
     os.chdir("IPGeoLocation")
     subprocess.run(["sudo", "apt", "install", "python3-pip", "-y"])
@@ -60,9 +60,9 @@ def run_ip_geolocation():
     subprocess.run(["figlet", "IP Geolocation"])
     time.sleep(2)
     print("To use this tool, run the following commands:")
-    print("1. cd IPGeoLocation")
-    print("2. pip3 install -r requirements.txt --user")
-    print("3. Usage: ./ip2geolocation.py -t X.X.X.X (replace X.X.X.X with the victim's IP)")
+    print("cd IPGeoLocation")
+    print("pip3 install -r requirements.txt --user")
+    print("python3 ipgeolocation.py -t X.X.X.X (replace X.X.X.X with the victim's IP)")
 
 def main():
     # Check if the script is run with root privileges
