@@ -60,9 +60,9 @@ def run_ip_geolocation():
     subprocess.run(["figlet", "IP Geolocation"])
     time.sleep(2)
     print("To use this tool, run the following commands:")
-    print("cd IPGeoLocation")
-    print("pip3 install -r requirements.txt --user")
-    print("python3 ipgeolocation.py -t X.X.X.X (replace X.X.X.X with the victim's IP)")
+    print("1) cd IPGeoLocation")
+    print("2) pip3 install -r requirements.txt --user")
+    print("3) python3 ipgeolocation.py -t X.X.X.X (replace X.X.X.X with the victim's IP)")
 
 def main():
     # Check if the script is run with root privileges
@@ -76,31 +76,26 @@ def main():
     # Display a message using figlet
     subprocess.run(["figlet", "Petulla Terminal"])
 
-    while True:
-        # Display menu options
-        print("1) Phishing attack")
-        print("2) Sql attack")
-        print("3) Wifi attack")
-        print("4) IP Geolocation")
-        print("104) Exit")
-
-        choice = input("Select an option: ")
-
-        if choice == "1":
-            print("Running ZPhisher in 5 seconds...")
-            time.sleep(5)
-            run_zphisher()
-        elif choice == "2":
-            run_sqlmap()
-        elif choice == "3":
-            run_wifi_tools()
-        elif choice == "4":
-            run_ip_geolocation()
-        elif choice == "104":
-            # Exit the script
-            break
-        else:
-            print("Invalid choice.")
+    # Display menu options
+    print("1) Phishing attack")
+    print("2) Sql attack")
+    print("3) Wifi attack")
+    print("4) IP Geolocation")
+    
+    choice = input("Select an option: ")
+    
+    if choice == "1":
+        print("Running ZPhisher in 5 seconds...")
+        time.sleep(5)
+        run_zphisher()
+    elif choice == "2":
+        run_sqlmap()
+    elif choice == "3":
+        run_wifi_tools()
+    elif choice == "4":
+        run_ip_geolocation()
+    else:
+        print("Invalid choice.")
 
 if __name__ == "__main__":
     main()
