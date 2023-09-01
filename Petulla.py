@@ -24,19 +24,25 @@ def run_sqlmap():
     os.chdir("sqlmap-dev")
     subprocess.run(["sudo", "python3", "sqlmap.py", "--wizard"])
 
-def run_wifi_tools():
-    print("Running Wi-Fi tools...")
-    subprocess.run(["figlet", "Choose one"])
-    time.sleep(2)
-    print("1) Airmon-ng")
+def setup_wifi_monitor_mode():
+    print("If you are running this in a VM, use an external wireless card.")
+    print("1) Start monitor mode")
     print("2) Wifite")
     
     choice = input("Select an option: ")
     
     if choice == "1":
+        print("Installing aircrack-ng...")
+        subprocess.run(["sudo", "apt", "install", "aircrack-ng", "-y"])
+        print("Setting up monitor mode...")
+        subprocess.run(["figlet", "Setting up monitor mode..."])
         subprocess.run(["airmon-ng"])
+        subprocess.run(["airmon-ng", "check"])
+        subprocess.run(["airmon-ng", "start", "wlan0"])
+        subprocess.run(["airodump-ng", "wlan0mon"])
+        subprocess.run(["airodump-ng", "wlan0"])
     elif choice == "2":
-        subprocess.run(["wifite"])
+        print("You selected option 2 (Wifite).")
     else:
         print("Invalid choice.")
 
@@ -53,9 +59,9 @@ def main():
     subprocess.run(["figlet", "Petulla Terminal"])
 
     # Display menu options
-    print("1) Phishing attack")
-    print("2) Sql attack")
-    print("3) Wifi attack")
+    print("1) Phis atta")
+    print("2) sql atta")
+    print("3) wifi atta")
     
     choice = input("Select an option: ")
     
@@ -66,7 +72,10 @@ def main():
     elif choice == "2":
         run_sqlmap()
     elif choice == "3":
-        run_wifi_tools()
+        print("Running Wi-Fi tools...")
+        subprocess.run(["figlet", "Choose one"])
+        time.sleep(2)
+        setup_wifi_monitor_mode()
     else:
         print("Invalid choice.")
 
