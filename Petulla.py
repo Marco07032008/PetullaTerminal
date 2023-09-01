@@ -45,6 +45,8 @@ def run_wifi_tools():
         subprocess.run(["airodump-ng", "wlan0mon"])
         subprocess.run(["airodump-ng", "wlan0"])
     elif choice == "2":
+        print("Installing and running Wifite...")
+        subprocess.run(["sudo", "apt", "install", "wifite", "-y"])
         subprocess.run(["wifite"])
     else:
         print("Invalid choice.")
@@ -62,9 +64,9 @@ def main():
     subprocess.run(["figlet", "Petulla Terminal"])
 
     # Display menu options
-    print("1) Phis atta")
-    print("2) sql atta")
-    print("3) wifi atta")
+    print("1) Phishing attack")
+    print("2) Sql attack")
+    print("3) Wifi attack")
     
     choice = input("Select an option: ")
     
